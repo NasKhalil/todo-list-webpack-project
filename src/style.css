@@ -6,7 +6,7 @@ body {
 
 .main-container {
   width: 400px;
-  box-shadow: 0px 0px 16px 8px rgba(110,106,106,0.81);
+  box-shadow: 0 0 16px 8px rgba(110, 106, 106, 0.81);
   align-self: center;
 }
 
