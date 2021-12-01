@@ -3,5 +3,5 @@ export default class Todo {
     this.index = Math.random();
     this.description = description;
     this.completed = completed;
-}
+  }
 }
