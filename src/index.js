@@ -4,6 +4,25 @@ import checkBoxEvent from './checkBoxEvent.js';
 
 const todos = document.getElementById('todo-container');
 
+// const tasks = [
+//   {
+//     description: 'Call the dentist at 9am',
+//     completed: false,
+//     index: 1,
+//   },
+//   {
+//     description: 'Go to gym at 5pm',
+//     completed: false,
+//     index: 2,
+//   },
+//   {
+//     description: 'Reply to emails',
+//     completed: false,
+//     index: 3,
+//   },
+// ]
+// localStorage.setItem('todoList', JSON.stringify(tasks));
+
 class TodoList {
   constructor() {
     this.list = [];
