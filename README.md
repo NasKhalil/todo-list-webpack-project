@@ -19,6 +19,8 @@ To get a local copy up and running follow these simple example steps.
 - create a new folder
 - acccess the folder via command line
 - run this under the command line: git clone https://github.com/NasKhalil/todo-list-webpack-project.git
+- npm install
+- npm start
 
 
 ### Prerequisites
