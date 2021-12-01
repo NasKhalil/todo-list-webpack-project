@@ -9,5 +9,5 @@ export default (t) => {
     item.completed = false;
   }
 
-  localStorage.setItem('todoList', JSON.stringify(data))
-}
+  localStorage.setItem('todoList', JSON.stringify(data));
+};
