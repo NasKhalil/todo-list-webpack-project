@@ -19,7 +19,7 @@ export default (data) => {
         index: 3,
       },
     ];
-localStorage.setItem('todoList', JSON.stringify(tasks));
+    localStorage.setItem('todoList', JSON.stringify(tasks));
   } else {
     getData = JSON.parse(getData);
   }
