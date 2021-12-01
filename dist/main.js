@@ -110,13 +110,43 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/Todo.js":
+/*!*********************!*\
+  !*** ./src/Todo.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Todo)\n/* harmony export */ });\nclass Todo {\r\n    constructor(description, completed = false) {\r\n      this.index = Math.random();\r\n      this.description = description;\r\n      this.completed = completed;\r\n    }\r\n  }\n\n//# sourceURL=webpack://todo-list-webpack-project/./src/Todo.js?");
+
+/***/ }),
+
+/***/ "./src/checkBoxEvent.js":
+/*!******************************!*\
+  !*** ./src/checkBoxEvent.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((t) => {\r\n  const { index } = t.dataset;\r\n  const data = JSON.parse(localStorage.getItem('todoList'));\r\n  const item = data.find((it) => it.index === +index);\r\n\r\n  if (t.checked) {\r\n    item.completed = true;\r\n  } else {\r\n    item.completed = false;\r\n  }\r\n\r\n  localStorage.setItem('todoList', JSON.stringify(data))\r\n});\n\n//# sourceURL=webpack://todo-list-webpack-project/./src/checkBoxEvent.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\r\n\r\nconst tasks = [\r\n  {\r\n    description: 'Call the dentist at 9am',\r\n    completed: false,\r\n    index: 1,\r\n  },\r\n  {\r\n    description: 'Go to gym at 5pm',\r\n    completed: false,\r\n    index: 2,\r\n  },\r\n  {\r\n    description: 'Reply to emails',\r\n    completed: false,\r\n    index: 3,\r\n  },\r\n];\r\n\r\nconst todos = document.getElementById('todo-container');\r\n\r\nconst displayTodo = () => {\r\n  let htmlCode = '';\r\n  tasks.forEach((item) => {\r\n    htmlCode += `\r\n    <div class='todo-item'>\r\n      <div class='left-items'>\r\n        <input type=\"checkbox\" >\r\n        <p>${item.description}</p>\r\n      </div>\r\n      <button class='remove-btn'>del</button>\r\n    </div>\r\n    `;\r\n  });\r\n  todos.innerHTML = htmlCode;\r\n};\r\n\r\nwindow.addEventListener('load', () => {\r\n  displayTodo();\r\n});\n\n//# sourceURL=webpack://todo-list-webpack-project/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _init_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./init.js */ \"./src/init.js\");\n/* harmony import */ var _Todo_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Todo.js */ \"./src/Todo.js\");\n/* harmony import */ var _checkBoxEvent_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./checkBoxEvent.js */ \"./src/checkBoxEvent.js\");\n\r\n\r\n\r\n\r\n\r\nconst todos = document.getElementById('todo-container');\r\nconst inputField = document.getElementById('input-field');\r\n\r\nclass TodoList {\r\n  constructor() {\r\n    this.list = [];\r\n  }\r\n\r\n  static displayTodo = () => {\r\n    (0,_init_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(this.list);\r\n    this.list = [...(0,_init_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(this.list)]\r\n    let htmlCode = '';\r\n    this.list.forEach((item) => {\r\n      htmlCode += `\r\n      <div class='todo-item'>\r\n        <div class='left-items'>\r\n          <input id='boxes' type=\"checkbox\" ${item.completed ? 'checked' : ''} data-index=${item.index}>\r\n          <p>${item.description}</p>\r\n        </div>\r\n        <button class='remove-btn'>del</button>\r\n      </div>\r\n      `;\r\n    });\r\n    todos.insertAdjacentHTML('beforeend', htmlCode);\r\n\r\n    document.querySelectorAll('#boxes').forEach((item) => {\r\n      item.addEventListener('change', ()=> {\r\n        (0,_checkBoxEvent_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(item)\r\n      })\r\n    })\r\n  };\r\n\r\n  static addTodo = (todo) => {\r\n    this.list = (0,_init_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(this.list);\r\n    this.list = this.list.concat(todo);\r\n    localStorage.setItem('todoList', JSON.stringify(this.list));\r\n    TodoList.displayTodo();\r\n  }\r\n}\r\n\r\ninputField.addEventListener('keypress', (e) => {\r\n  if (e.key === 'Enter' && inputField.value){\r\n    TodoList.addTodo(new _Todo_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"](inputField.value));\r\n    inputField.value = '';\r\n  }\r\n});\r\n\r\n// checkbox \r\n\r\n// const checkBoxes = document.querySelector('#todo-container');\r\n\r\n// checkBoxes.addEventListener('change', (e) => {\r\n//   checkBoxEvent(e.target);\r\n//   })\r\n\r\n\r\n\r\nwindow.addEventListener('load', () => {\r\n  TodoList.displayTodo();\r\n});\n\n//# sourceURL=webpack://todo-list-webpack-project/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/init.js":
+/*!*********************!*\
+  !*** ./src/init.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((data) => {\r\n  data = localStorage.getItem('todoList');\r\n  let getData = data;\r\n  if (getData === null) {\r\n      getData = [];\r\n  } else {\r\n      getData = JSON.parse(getData)\r\n  }\r\n  return getData;\r\n});\n\n//# sourceURL=webpack://todo-list-webpack-project/./src/init.js?");
 
 /***/ })
 
