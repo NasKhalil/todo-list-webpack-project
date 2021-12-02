@@ -2,7 +2,7 @@ export default (data) => {
   data = localStorage.getItem('todoList');
   let getData = data;
   if (getData === null) {
-    getData = []
+    getData = [];
   } else {
     getData = JSON.parse(getData);
   }

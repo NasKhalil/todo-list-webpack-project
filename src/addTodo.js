@@ -3,6 +3,6 @@ export default (tasks, todo) => {
     index: tasks.length + 1,
     description: todo,
     completed: false,
-  })
+  });
   localStorage.setItem('todoList', JSON.stringify(tasks));
-  }
+};

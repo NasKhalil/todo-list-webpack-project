@@ -1,10 +1,10 @@
 import './style.css';
 import init from './init.js';
 import checkBoxEvent from './checkBoxEvent.js';
-import addTodo from './addTodo';
-import clearAllCompleted from './clearAllCompleted';
-import deleteTodo from './deleteTodo';
-import updateTodo from './updateTodo';
+import addTodo from './addTodo.js';
+import clearAllCompleted from './clearAllCompleted.js';
+import deleteTodo from './deleteTodo.js';
+import updateTodo from './updateTodo.js';
 
 const todos = document.getElementById('todo-container');
 const inputField = document.getElementById('input-field');
@@ -15,7 +15,7 @@ class TodoList {
   }
 
   static displayTodo = () => {
-    this.list = init(this.list)
+    this.list = init(this.list);
     let htmlCode = '';
     this.list.forEach((item) => {
       htmlCode += `
@@ -28,7 +28,7 @@ class TodoList {
       </div>
       `;
     });
-    todos.innerHTML = htmlCode ;
+    todos.innerHTML = htmlCode;
 
     document.querySelectorAll('#boxes').forEach((item) => {
       item.addEventListener('change', () => {
@@ -40,23 +40,23 @@ class TodoList {
       item.addEventListener('click', (e) => {
         deleteTodo(e);
         this.displayTodo();
-      })
-    })
+      });
+    });
 
     document.querySelectorAll('.description').forEach((item) => {
       item.addEventListener('keypress', (e) => {
         updateTodo(e);
-      })
-    })
+      });
+    });
   };
 }
 
 inputField.addEventListener('keypress', (e) => {
-  let list = init(localStorage.getItem('todoList'))
-  if (e.key === 'Enter' && inputField.value){
-    addTodo(list ,inputField.value);
+  let list = init(localStorage.getItem('todoList'));
+  if (e.key === 'Enter' && inputField.value) {
+    addTodo(list, inputField.value);
     inputField.value = '';
-    TodoList.displayTodo()
+    TodoList.displayTodo();
   }
 });
 
@@ -64,8 +64,8 @@ const clearAllBtn = document.querySelector('.clear-all');
 
 clearAllBtn.addEventListener('click', () => {
   clearAllCompleted();
-  TodoList.displayTodo()
-})
+  TodoList.displayTodo();
+});
 
 window.addEventListener('load', () => {
   TodoList.displayTodo();
