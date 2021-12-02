@@ -44,7 +44,7 @@ class TodoList {
     });
 
     document.querySelectorAll('.description').forEach((item) => {
-      item.addEventListener('keypress', (e) => {
+      item.addEventListener('input', (e) => {
         updateTodo(e);
       });
     });
