@@ -52,7 +52,7 @@ class TodoList {
 }
 
 inputField.addEventListener('keypress', (e) => {
-  let list = init(localStorage.getItem('todoList'));
+  const list = init(localStorage.getItem('todoList'));
   if (e.key === 'Enter' && inputField.value) {
     addTodo(list, inputField.value);
     inputField.value = '';

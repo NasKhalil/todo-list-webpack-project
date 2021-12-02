@@ -1,5 +1,5 @@
 export default (e) => {
-  let id = Number(e.target.getAttribute('data-index'));
+  const id = Number(e.target.getAttribute('data-index'));
   const data = JSON.parse(localStorage.getItem('todoList'));
   const todoObj = data.find((x) => x.index === id);
 

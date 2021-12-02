@@ -4,7 +4,7 @@ export default (e) => {
 
   data = data.filter((item) => item.index !== Number(id));
 
-  for (let i = 0; i < data.length; i+=1) {
+  for (let i = 0; i < data.length; i += 1) {
     data[i].index = i + 1;
   }
 
