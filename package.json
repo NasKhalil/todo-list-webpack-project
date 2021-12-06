@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/NasKhalil/todo-list-webpack-project/issues"
   },
-  "homepage": "https://github.com/NasKhalil/todo-list-webpack-project#readme",
+  "homepage": "https://naskhalil.github.io/todo-list-webpack-project/",
   "devDependencies": {
     "css-loader": "^6.5.1",
     "gh-pages": "^3.2.3",
